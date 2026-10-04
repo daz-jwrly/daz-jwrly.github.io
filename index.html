@@ -122,12 +122,13 @@
 
   /* come nasce un pezzo */
   .processo{border-top:1px solid var(--grigio-chiaro);padding-top:96px}
-  .passi{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
-  .passi div{border-top:1px solid var(--nero);padding-top:22px}
-  .passi .num{font-family:var(--serif-titoli);font-size:2.2rem;line-height:1;color:var(--accento)}
-  .passi h3{font-family:var(--serif-titoli);font-weight:500;font-size:1.3rem;margin:14px 0 8px}
-  .passi p{font-size:1.08rem;color:#3b3b3b}
-  @media (max-width:860px){ .passi{grid-template-columns:1fr;gap:32px} }
+  .passi{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .passi figure{margin:0}
+  .passi img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--grigio-chiaro)}
+  .passi .num{display:block;font-family:var(--serif-titoli);font-size:1.6rem;line-height:1;color:var(--accento);margin-top:18px}
+  .passi h3{font-family:var(--serif-titoli);font-weight:500;font-size:1.2rem;margin:8px 0 6px}
+  .passi p{font-size:1.02rem;color:#3b3b3b;line-height:1.5}
+  @media (max-width:860px){ .passi{grid-template-columns:repeat(2,1fr);gap:28px 14px} .passi p{font-size:.95rem} }
 
   /* instagram */
   .instagram{padding-top:0}
@@ -251,11 +252,13 @@
       <div class="intro">
         <span class="etichetta" data-t="proc.label">Come nasce un pezzo</span>
         <h2 data-t="proc.h2">A mano, un passo alla volta.</h2>
+        <p data-t="proc.p">Dietro ogni gioiello c'è un lavoro lento, fatto a mano dall'inizio alla fine. Ecco come prende forma, dal colore al pezzo da indossare.</p>
       </div>
       <div class="passi">
-        <div><span class="num">01</span><h3 data-t="p1.h">Forma</h3><p data-t="p1.p">Ogni pezzo è modellato a mano nell'argilla polimerica: onde, nastri, dischi, superfici rigate.</p></div>
-        <div><span class="num">02</span><h3 data-t="p2.h">Cottura</h3><p data-t="p2.p">Finché non va in forno il pezzo è ancora morbido: è la cottura a fissare la sua forma definitiva.</p></div>
-        <div><span class="num">03</span><h3 data-t="p3.h">Montaggio</h3><p data-t="p3.p">Ogni pezzo viene montato a mano, pronto da indossare ogni giorno.</p></div>
+        <figure><img src="nasce-1.jpg" alt="Argilla in blu, azzurro e verde accanto a un tessuto a fiori" data-t-alt="p1.alt" loading="lazy"><figcaption><span class="num">01</span><h3 data-t="p1.h">Il colore</h3><p data-t="p1.p">Si parte dalla palette: a volte la scegliamo insieme, per accompagnare un capo che ami.</p></figcaption></figure>
+        <figure><img src="nasce-2.jpg" alt="Pezzi bianchi modellati a mano, prima della cottura" data-t-alt="p2.alt" loading="lazy"><figcaption><span class="num">02</span><h3 data-t="p2.h">La forma</h3><p data-t="p2.p">Ogni pezzo è modellato a mano: onde, nastri, dischi, superfici rigate. Prima della cottura è ancora morbido.</p></figcaption></figure>
+        <figure><img src="nasce-3.jpg" alt="Collana su cordino, anello, orecchini e ciondoli finiti" data-t-alt="p3.alt" loading="lazy"><figcaption><span class="num">03</span><h3 data-t="p3.h">Cottura e montaggio</h3><p data-t="p3.p">Il pezzo va in forno, di solito per due cotture, poi viene montato a mano, pronto da indossare.</p></figcaption></figure>
+        <figure><img src="nasce-4.jpg" alt="Papillon in argilla con macchie blu e verdi" data-t-alt="p4.alt" loading="lazy"><figcaption><span class="num">04</span><h3 data-t="p4.h">Il pezzo finito</h3><p data-t="p4.p">La palette diventa un pezzo unico: le piccole variazioni sono il segno della mano.</p></figcaption></figure>
       </div>
     </div>
   </section>
@@ -454,13 +457,20 @@
       "cont.label": "Contatti", "cont.h2": "Ti piace un pezzo?",
       "cont.p": "Scrivici per sapere se è disponibile, per vederlo da vicino o per un'idea tutta tua.",
       "proc.label": "Come nasce un pezzo",
+      "proc.p": "Dietro ogni gioiello c'è un lavoro lento, fatto a mano dall'inizio alla fine. Ecco come prende forma, dal colore al pezzo da indossare.",
+      "p1.h": "Il colore",
+      "p1.p": "Si parte dalla palette: a volte la scegliamo insieme, per accompagnare un capo che ami.",
+      "p1.alt": "Argilla in blu, azzurro e verde accanto a un tessuto a fiori",
+      "p2.h": "La forma",
+      "p2.p": "Ogni pezzo è modellato a mano: onde, nastri, dischi, superfici rigate. Prima della cottura è ancora morbido.",
+      "p2.alt": "Pezzi bianchi modellati a mano, prima della cottura",
+      "p3.h": "Cottura e montaggio",
+      "p3.p": "Il pezzo va in forno, di solito per due cotture, poi viene montato a mano, pronto da indossare.",
+      "p3.alt": "Collana su cordino, anello, orecchini e ciondoli finiti",
+      "p4.h": "Il pezzo finito",
+      "p4.p": "La palette diventa un pezzo unico: le piccole variazioni sono il segno della mano.",
+      "p4.alt": "Papillon in argilla con macchie blu e verdi",
       "proc.h2": "A mano, un passo alla volta.",
-      "p1.h": "Forma",
-      "p1.p": "Ogni pezzo è modellato a mano nell'argilla polimerica: onde, nastri, dischi, superfici rigate.",
-      "p2.h": "Cottura",
-      "p2.p": "Finché non va in forno il pezzo è ancora morbido: è la cottura a fissare la sua forma definitiva.",
-      "p3.h": "Montaggio",
-      "p3.p": "Ogni pezzo viene montato a mano, pronto da indossare ogni giorno.",
       "ig.h2": "Seguici su Instagram.",
       "ig.p": "I pezzi nuovi, i lavori su richiesta e quello che succede al banco, prima di arrivare qui.",
       "ig.cta": "Segui @daz.jwrly",
@@ -497,13 +507,20 @@
       "cont.label": "Contact", "cont.h2": "Like a piece?",
       "cont.p": "Write to us to check availability, to see it up close or for an idea all your own.",
       "proc.label": "How a piece is made",
+      "proc.p": "Behind every piece there is slow work, done by hand from start to finish. Here is how it takes shape, from color to a piece ready to wear.",
+      "p1.h": "Color",
+      "p1.p": "It starts with the palette: sometimes we choose it together, to go with a garment you love.",
+      "p1.alt": "Blue, light blue and green clay next to a floral fabric",
+      "p2.h": "Shape",
+      "p2.p": "Each piece is shaped by hand: waves, ribbons, discs, ridged surfaces. Before baking it is still soft.",
+      "p2.alt": "White hand-shaped pieces, before baking",
+      "p3.h": "Baking and assembly",
+      "p3.p": "The piece goes into the oven, usually for two bakes, then it is assembled by hand, ready to wear.",
+      "p3.alt": "Finished cord necklace, ring, earrings and pendants",
+      "p4.h": "The finished piece",
+      "p4.p": "The palette becomes a one-of-a-kind piece: small variations are the mark of the hand.",
+      "p4.alt": "Clay bow tie with blue and green specks",
       "proc.h2": "By hand, one step at a time.",
-      "p1.h": "Shape",
-      "p1.p": "Each piece is shaped by hand in polymer clay: waves, ribbons, discs, ridged surfaces.",
-      "p2.h": "Baking",
-      "p2.p": "Until it goes into the oven the piece is still soft: baking sets its final shape.",
-      "p3.h": "Assembly",
-      "p3.p": "Each piece is assembled by hand, ready to wear every day.",
       "ig.h2": "Follow us on Instagram.",
       "ig.p": "New pieces, made-to-order work and what happens at the workbench, before it gets here.",
       "ig.cta": "Follow @daz.jwrly",
@@ -540,13 +557,20 @@
       "cont.label": "Contato", "cont.h2": "Gostou de uma peça?",
       "cont.p": "Escreva para saber se está disponível, para vê-la de perto ou para uma ideia só sua.",
       "proc.label": "Como nasce uma peça",
+      "proc.p": "Por trás de cada joia há um trabalho lento, feito à mão do início ao fim. Veja como ela ganha forma, da cor à peça pronta para usar.",
+      "p1.h": "A cor",
+      "p1.p": "Tudo começa pela paleta: às vezes a escolhemos juntas, para combinar com uma roupa que você ama.",
+      "p1.alt": "Argila azul, azul-claro e verde ao lado de um tecido florido",
+      "p2.h": "A forma",
+      "p2.p": "Cada peça é modelada à mão: ondas, fitas, discos, superfícies frisadas. Antes do forno ela ainda é macia.",
+      "p2.alt": "Peças brancas modeladas à mão, antes do forno",
+      "p3.h": "Forno e montagem",
+      "p3.p": "A peça vai ao forno, geralmente duas vezes, e depois é montada à mão, pronta para usar.",
+      "p3.alt": "Colar em cordão, anel, brincos e pingentes prontos",
+      "p4.h": "A peça pronta",
+      "p4.p": "A paleta vira uma peça única: as pequenas variações são a marca da mão.",
+      "p4.alt": "Gravata-borboleta de argila com manchas azuis e verdes",
       "proc.h2": "À mão, um passo de cada vez.",
-      "p1.h": "Forma",
-      "p1.p": "Cada peça é modelada à mão em argila polimérica: ondas, fitas, discos, superfícies frisadas.",
-      "p2.h": "Forno",
-      "p2.p": "Até ir ao forno a peça ainda é macia: é o forno que fixa a sua forma definitiva.",
-      "p3.h": "Montagem",
-      "p3.p": "Cada peça é montada à mão, pronta para usar todos os dias.",
       "ig.h2": "Siga-nos no Instagram.",
       "ig.p": "As peças novas, os trabalhos sob encomenda e o que acontece na bancada, antes de chegar aqui.",
       "ig.cta": "Seguir @daz.jwrly",
