@@ -83,7 +83,8 @@
   .scheda .vedi{position:absolute;left:0;right:0;bottom:0;padding:12px;text-align:center;background:rgba(251,250,248,.92);font-family:var(--sans);font-weight:300;text-transform:uppercase;letter-spacing:.18em;font-size:.64rem;transform:translateY(100%);transition:transform .3s}
   .scheda:hover .vedi,.scheda:focus-visible .vedi{transform:none}
   .scheda .nome{display:block;font-family:var(--serif-titoli);font-weight:500;font-size:1.08rem;margin-top:14px;line-height:1.3}
-  .scheda .collezione-nome{display:block;margin-top:4px}
+  .scheda .breve{display:block;margin-top:3px;font-style:italic;font-size:.98rem;color:#55524d;line-height:1.35}
+  .scheda .collezione-nome{display:block;margin-top:6px}
   .scheda .prezzo{display:block;margin-top:6px;font-family:var(--sans);font-weight:400;font-size:.9rem;letter-spacing:.04em}
   @media (max-width:680px){ .scheda .nome{font-size:.98rem} .scheda .vedi{display:none} }
   .nota-acquisto{text-align:center;margin-top:56px;color:var(--grigio);font-size:1.02rem}
@@ -117,7 +118,11 @@
   .dettaglio .azioni{display:flex;flex-direction:column;gap:10px;margin-top:26px}
   .dettaglio .azioni a{text-align:center;padding:14px 20px;border:1px solid var(--nero);text-decoration:none;font-family:var(--sans);font-weight:300;text-transform:uppercase;letter-spacing:.18em;font-size:.68rem}
   .dettaglio .azioni a.pieno{background:var(--nero);color:var(--bianco)}
-  .dettaglio .chiudi{position:absolute;top:10px;right:14px;background:none;border:0;font-size:2rem;line-height:1;cursor:pointer;color:var(--nero)}
+  .dettaglio .chiudi{position:fixed;top:16px;right:16px;z-index:60;width:48px;height:48px;border-radius:50%;background:var(--bianco);border:1px solid var(--nero);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 20px -8px rgba(0,0,0,.4);color:var(--nero);padding:0}
+  .dettaglio .chiudi svg{width:20px;height:20px}
+  .dettaglio .chiudi:hover{background:var(--nero);color:var(--bianco)}
+  .dettaglio .torna{margin-top:18px;background:none;border:0;cursor:pointer;font-family:var(--sans);font-weight:300;text-transform:uppercase;letter-spacing:.18em;font-size:.66rem;color:var(--grigio);text-decoration:underline;text-underline-offset:5px;align-self:flex-start;padding:4px 0}
+  .dettaglio .torna:hover{color:var(--nero)}
   @media (max-width:720px){ .dettaglio .pannello{grid-template-columns:1fr} .dettaglio .info{padding:28px 22px} }
 </style>
 </head>
@@ -231,7 +236,7 @@
 
 <div class="dettaglio" id="dettaglio" role="dialog" aria-modal="true" aria-labelledby="d-nome">
   <div class="pannello">
-    <button class="chiudi" aria-label="Chiudi" data-t-aria="d.chiudi">&times;</button>
+    <button class="chiudi" aria-label="Chiudi" data-t-aria="d.chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     <img id="d-foto" alt="">
     <div class="info">
       <span class="etichetta" id="d-collezione"></span>
@@ -242,6 +247,7 @@
         <a class="pieno" id="d-email" href="#" data-t="d.email">Chiedi disponibilità via email</a>
         <a href="https://ig.me/m/daz.jwrly" target="_blank" rel="noopener" data-t="d.ig">Scrivici su Instagram</a>
       </div>
+      <button class="torna" data-t="d.torna">← Torna ai gioielli</button>
     </div>
   </div>
 </div>
@@ -251,60 +257,72 @@
      ELENCO PEZZI
      Per cambiare un prezzo: modifica il numero dopo "prezzo".
      "da: true" mostra "da € 28" (prezzo di partenza).
-     Nomi e descrizioni sono in tre lingue: it, en, pt.
+     Nomi, descrizione breve (sotto il nome nella griglia) e testo
+     (nella scheda aperta) sono in tre lingue: it, en, pt.
      ============================================================ */
   const prodotti = [
     { tipo: "orecchini", collezione: "bianco", prezzo: 42, foto: "orecchini-onda.jpg",
+      breve: { it: "Onda rigata, leggera sul lobo", en: "Ridged wave, light on the ear", pt: "Onda frisada, leve na orelha" },
       nome:  { it: "Orecchini Onda", en: "Onda Earrings", pt: "Brincos Onda" },
       testo: { it: "Un'onda rigata che segue il lobo, leggera e scultorea.",
                en: "A ridged wave that follows the earlobe, light and sculptural.",
                pt: "Uma onda frisada que acompanha o lóbulo, leve e escultural." } },
     { tipo: "orecchini", collezione: "bianco", prezzo: 40, foto: "orecchini-disco.jpg",
+      breve: { it: "Cerchio intagliato, essenziale", en: "Notched circle, pure and simple", pt: "Círculo recortado, essencial" },
       nome:  { it: "Orecchini Disco", en: "Disco Earrings", pt: "Brincos Disco" },
       testo: { it: "Un cerchio pieno con un piccolo intaglio: essenziale, da portare ogni giorno.",
                en: "A full circle with a small notch: essential, made for every day.",
                pt: "Um círculo cheio com um pequeno recorte: essencial, para usar todos os dias." } },
     { tipo: "orecchini", collezione: "bianco", prezzo: 42, foto: "orecchini-nastro.jpg",
+      breve: { it: "Nastro piegato come tessuto", en: "A ribbon folded like fabric", pt: "Fita dobrada como tecido" },
       nome:  { it: "Orecchini Nastro", en: "Nastro Earrings", pt: "Brincos Nastro" },
       testo: { it: "Un nastro rigato che si piega e ricade, come tessuto.",
                en: "A ridged ribbon that folds and falls, like fabric.",
                pt: "Uma fita frisada que se dobra e cai, como tecido." } },
     { tipo: "orecchini", collezione: "colore", prezzo: 28, da: true, foto: "colore.jpg",
+      breve: { it: "Giallo, verde e blu, più forme", en: "Yellow, green and blue, many shapes", pt: "Amarelo, verde e azul, várias formas" },
       nome:  { it: "Orecchini Colore", en: "Colore Earrings", pt: "Brincos Colore" },
       testo: { it: "Giallo, verde e blu, in tinta unita o mescolati. Più forme disponibili: scrivici per scegliere la tua.",
                en: "Yellow, green and blue, solid or mixed. Several shapes available: write to us to choose yours.",
                pt: "Amarelo, verde e azul, lisos ou misturados. Várias formas disponíveis: escreva para escolher a sua." } },
     { tipo: "collane", collezione: "bianco", prezzo: 44, foto: "ciondolo-onda.jpg",
+      breve: { it: "Onda rigata su catenina", en: "Ridged wave on a fine chain", pt: "Onda frisada em corrente fina" },
       nome:  { it: "Ciondolo Onda", en: "Onda Pendant", pt: "Pingente Onda" },
       testo: { it: "La stessa onda rigata, sospesa su una catenina sottile.",
                en: "The same ridged wave, suspended on a fine chain.",
                pt: "A mesma onda frisada, suspensa em uma corrente fina." } },
     { tipo: "collane", collezione: "bianco", prezzo: 42, foto: "ciondolo-disco.jpg",
+      breve: { it: "Disco e sfera su catenina", en: "Disc and sphere on a fine chain", pt: "Disco e esfera em corrente fina" },
       nome:  { it: "Ciondolo Disco", en: "Disco Pendant", pt: "Pingente Disco" },
       testo: { it: "Disco intagliato e piccola sfera, su catenina sottile.",
                en: "A notched disc and a small sphere, on a fine chain.",
                pt: "Disco recortado e pequena esfera, em corrente fina." } },
     { tipo: "collane", collezione: "bianco", prezzo: 44, foto: "ciondolo-nastro.jpg",
+      breve: { it: "Nastro e sfera su catenina", en: "Ribbon and sphere on a fine chain", pt: "Fita e esfera em corrente fina" },
       nome:  { it: "Ciondolo Nastro", en: "Nastro Pendant", pt: "Pingente Nastro" },
       testo: { it: "Piccolo nastro piegato con sfera, su catenina sottile.",
                en: "A small folded ribbon with a sphere, on a fine chain.",
                pt: "Pequena fita dobrada com esfera, em corrente fina." } },
     { tipo: "collane", collezione: "bianco", prezzo: 58, foto: "collana-nastro.jpg",
+      breve: { it: "Nastro attorcigliato su cordino nero", en: "Twisted ribbon on a black cord", pt: "Fita torcida em cordão preto" },
       nome:  { it: "Collana Nastro", en: "Nastro Necklace", pt: "Colar Nastro" },
       testo: { it: "Un lungo nastro rigato attorcigliato su cordino nero. Il pezzo che si nota.",
                en: "A long ridged ribbon twisted on a black cord. The piece that gets noticed.",
                pt: "Uma longa fita frisada torcida sobre cordão preto. A peça que chama atenção." } },
     { tipo: "collane", collezione: "bianco", prezzo: 52, foto: "collana-arco.jpg",
+      breve: { it: "Arco bianco su cordino nero", en: "White arc on a black cord", pt: "Arco branco em cordão preto" },
       nome:  { it: "Collana Arco", en: "Arco Necklace", pt: "Colar Arco" },
       testo: { it: "Un arco bianco morbido su cordino nero, pulito e deciso.",
                en: "A soft white arc on a black cord, clean and bold.",
                pt: "Um arco branco e suave sobre cordão preto, limpo e marcante." } },
     { tipo: "anelli", collezione: "bianco", prezzo: 36, foto: "anello-onda.jpg",
+      breve: { it: "Onda e sfera, anello aperto", en: "Wave and sphere, open ring", pt: "Onda e esfera, anel aberto" },
       nome:  { it: "Anello Onda", en: "Onda Ring", pt: "Anel Onda" },
       testo: { it: "Anello aperto con onda rigata e piccola sfera.",
                en: "An open ring with a ridged wave and a small sphere.",
                pt: "Anel aberto com onda frisada e pequena esfera." } },
     { tipo: "anelli", collezione: "bianco", prezzo: 32, foto: "anello-sfere.jpg",
+      breve: { it: "Una sfera bianca, una nera", en: "One white sphere, one black", pt: "Uma esfera branca, uma preta" },
       nome:  { it: "Anello Due Sfere", en: "Due Sfere Ring", pt: "Anel Due Sfere" },
       testo: { it: "Anello aperto con due sfere, bianca e nera, che si guardano.",
                en: "An open ring with two spheres, one white and one black, facing each other.",
@@ -347,7 +365,7 @@
       "footer": "© DAZ Jwrly · Gioielli artigianali fatti a mano",
       "vedi": "Vedi il pezzo", "da": "da",
       "collezione": c => "Collezione " + c,
-      "d.email": "Chiedi disponibilità via email", "d.ig": "Scrivici su Instagram", "d.chiudi": "Chiudi",
+      "d.email": "Chiedi disponibilità via email", "d.ig": "Scrivici su Instagram", "d.chiudi": "Chiudi", "d.torna": "← Torna ai gioielli",
       "mail.oggetto": n => "Disponibilità: " + n,
       "mail.testo": n => "Ciao! Vorrei sapere se il pezzo «" + n + "» è disponibile."
     },
@@ -378,7 +396,7 @@
       "footer": "© DAZ Jwrly · Handmade artisanal jewelry",
       "vedi": "View piece", "da": "from",
       "collezione": c => c + " collection",
-      "d.email": "Ask about availability by email", "d.ig": "Message us on Instagram", "d.chiudi": "Close",
+      "d.email": "Ask about availability by email", "d.ig": "Message us on Instagram", "d.chiudi": "Close", "d.torna": "← Back to the jewelry",
       "mail.oggetto": n => "Availability: " + n,
       "mail.testo": n => "Hello! I'd like to know if the piece “" + n + "” is available."
     },
@@ -409,7 +427,7 @@
       "footer": "© DAZ Jwrly · Joias artesanais feitas à mão",
       "vedi": "Ver a peça", "da": "a partir de",
       "collezione": c => "Coleção " + c,
-      "d.email": "Consultar disponibilidade por e-mail", "d.ig": "Fale conosco no Instagram", "d.chiudi": "Fechar",
+      "d.email": "Consultar disponibilidade por e-mail", "d.ig": "Fale conosco no Instagram", "d.chiudi": "Fechar", "d.torna": "← Voltar às joias",
       "mail.oggetto": n => "Disponibilidade: " + n,
       "mail.testo": n => "Olá! Gostaria de saber se a peça “" + n + "” está disponível."
     }
@@ -438,7 +456,7 @@
       const b = document.createElement("button");
       b.className = "scheda"; b.dataset.tipo = p.tipo;
       b.innerHTML = `<span class="foto"><img src="${p.foto}" alt="${p.nome[lingua]}" loading="lazy"><span class="vedi">${t("vedi")}</span></span>
-        <span class="nome">${p.nome[lingua]}</span><span class="etichetta collezione-nome">${collezioni[p.collezione][lingua]}</span><span class="prezzo">${prezzo(p)}</span>`;
+        <span class="nome">${p.nome[lingua]}</span><span class="breve">${p.breve[lingua]}</span><span class="etichetta collezione-nome">${collezioni[p.collezione][lingua]}</span><span class="prezzo">${prezzo(p)}</span>`;
       b.addEventListener("click", () => apri(i));
       griglia.appendChild(b);
     });
@@ -479,11 +497,20 @@
     document.getElementById("d-testo").textContent = p.testo[lingua];
     document.getElementById("d-email").href = "mailto:daz.jwrly@gmail.com?subject=" + encodeURIComponent(t("mail.oggetto")(nome)) + "&body=" + encodeURIComponent(t("mail.testo")(nome));
     d.classList.add("aperto");
+    document.body.style.overflow = "hidden";
+    history.pushState({ scheda: true }, "");
   }
-  const chiudi = () => d.classList.remove("aperto");
+  function chiudi(daIndietro) {
+    if (!d.classList.contains("aperto")) return;
+    d.classList.remove("aperto");
+    document.body.style.overflow = "";
+    if (!daIndietro && history.state && history.state.scheda) history.back();
+  }
   d.addEventListener("click", e => { if (e.target === d) chiudi(); });
-  d.querySelector(".chiudi").addEventListener("click", chiudi);
+  d.querySelector(".chiudi").addEventListener("click", () => chiudi());
+  d.querySelector(".torna").addEventListener("click", () => chiudi());
   document.addEventListener("keydown", e => { if (e.key === "Escape") chiudi(); });
+  window.addEventListener("popstate", () => chiudi(true));
 
   impostaLingua(scegliLinguaIniziale());
 </script>
