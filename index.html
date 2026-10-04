@@ -5,10 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DAZ Jwrly · Gioielli artigianali</title>
 <meta name="description" content="DAZ Jwrly: gioielli artigianali in argilla polimerica, fatti a mano per una quotidianità ricercata.">
+<link rel="canonical" href="https://daz-jwrly.github.io/">
+<link rel="alternate" hreflang="it" href="https://daz-jwrly.github.io/">
+<link rel="alternate" hreflang="en" href="https://daz-jwrly.github.io/?lang=en">
+<link rel="alternate" hreflang="pt" href="https://daz-jwrly.github.io/?lang=pt">
+<link rel="alternate" hreflang="x-default" href="https://daz-jwrly.github.io/">
+<!-- anteprima quando il link si condivide (WhatsApp, Instagram, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="DAZ Jwrly">
+<meta property="og:url" content="https://daz-jwrly.github.io/">
 <meta property="og:title" content="DAZ Jwrly · Gioielli artigianali">
-<meta property="og:description" content="Gioielli artigianali che seguono il tuo ritmo.">
-<meta property="og:image" content="apertura.jpg">
-<link rel="icon" href="logo.png">
+<meta property="og:description" content="Gioielli in argilla polimerica, fatti a mano uno per uno. Gioielli che seguono il tuo ritmo.">
+<meta property="og:image" content="https://daz-jwrly.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo DAZ Jwrly e orecchino bianco a onda rigata">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<!-- icona del sito -->
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#fbfaf8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
@@ -91,9 +110,38 @@
 
   /* su richiesta */
   .richiesta{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .richiesta img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .esempi{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+  .esempi figure{margin:0}
+  .esempi img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .esempi figure:first-child{margin-top:48px}
+  .esempi figure:last-child img{object-position:50% 0}
+  .esempi figcaption{margin-top:10px;line-height:1.6}
+  .esempi-nota{margin-top:14px;font-style:italic}
   .richiesta .intro{text-align:left;margin:0}
   @media (max-width:860px){ .richiesta{grid-template-columns:1fr;gap:32px} }
+
+  /* come nasce un pezzo */
+  .processo{border-top:1px solid var(--grigio-chiaro);padding-top:96px}
+  .passi{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+  .passi div{border-top:1px solid var(--nero);padding-top:22px}
+  .passi .num{font-family:var(--serif-titoli);font-size:2.2rem;line-height:1;color:var(--accento)}
+  .passi h3{font-family:var(--serif-titoli);font-weight:500;font-size:1.3rem;margin:14px 0 8px}
+  .passi p{font-size:1.08rem;color:#3b3b3b}
+  @media (max-width:860px){ .passi{grid-template-columns:1fr;gap:32px} }
+
+  /* instagram */
+  .instagram{padding-top:0}
+  .ig-foto{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:36px}
+  .ig-foto a{display:block;aspect-ratio:1/1;overflow:hidden;background:var(--grigio-chiaro)}
+  .ig-foto img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+  .ig-foto a:hover img{transform:scale(1.04)}
+  .instagram .centro{text-align:center}
+  .instagram .bottone{margin-top:0}
+  @media (max-width:680px){ .ig-foto{grid-template-columns:repeat(2,1fr)} }
+
+  /* pezzo unico */
+  .unico{position:absolute;top:10px;left:10px;background:var(--bianco);padding:5px 9px;font-family:var(--sans);font-weight:400;text-transform:uppercase;letter-spacing:.16em;font-size:.58rem}
+  .dettaglio .unico{position:static;display:inline-block;align-self:flex-start;border:1px solid var(--nero);margin-bottom:12px}
 
   /* contatti */
   .contatti{background:var(--nero);color:var(--bianco);text-align:center}
@@ -198,15 +246,56 @@
     </div>
   </section>
 
+  <section class="processo-sezione" id="come-nasce" style="padding-top:0">
+    <div class="wrap processo">
+      <div class="intro">
+        <span class="etichetta" data-t="proc.label">Come nasce un pezzo</span>
+        <h2 data-t="proc.h2">A mano, un passo alla volta.</h2>
+      </div>
+      <div class="passi">
+        <div><span class="num">01</span><h3 data-t="p1.h">Forma</h3><p data-t="p1.p">Ogni pezzo è modellato a mano nell'argilla polimerica: onde, nastri, dischi, superfici rigate.</p></div>
+        <div><span class="num">02</span><h3 data-t="p2.h">Cottura</h3><p data-t="p2.p">Finché non va in forno il pezzo è ancora morbido: è la cottura a fissare la sua forma definitiva.</p></div>
+        <div><span class="num">03</span><h3 data-t="p3.h">Montaggio</h3><p data-t="p3.p">Ogni pezzo viene montato a mano, pronto da indossare ogni giorno.</p></div>
+      </div>
+    </div>
+  </section>
+
   <section id="su-richiesta">
     <div class="wrap richiesta">
-      <img src="collana-nastro-anelli.jpg" alt="Collana a nastro bianco indossata" data-t-alt="rich.alt">
+      <div class="esempi">
+        <figure>
+          <img src="su-misura-1.jpg" alt="Pezzi in argilla nei colori scelti, prima della cottura" data-t-alt="rich.c1">
+          <figcaption class="etichetta" data-t="rich.c1">Prima della cottura: la palette scelta insieme</figcaption>
+        </figure>
+        <figure>
+          <img src="su-misura-2.jpg" alt="Orecchini e girocollo coordinati, indossati" data-t-alt="rich.c2">
+          <figcaption class="etichetta" data-t="rich.c2">Orecchini e girocollo coordinati</figcaption>
+        </figure>
+      </div>
       <div class="intro">
         <span class="etichetta" data-t="rich.label">Su richiesta</span>
         <h2 data-t="rich.h2">Un pezzo pensato per te.</h2>
         <p data-t="rich.p">Se cerchi un gioiello che dialoghi con ciò che già possiedi, un vestito che ami, una palette che ti rappresenta, possiamo progettarlo insieme. Scrivici e raccontaci la tua idea.</p>
+        <p class="esempi-nota" data-t="rich.esempi">Nelle foto, due lavori su richiesta: i colori scelti insieme, ancora prima della cottura, e orecchini coordinati al girocollo.</p>
         <a class="bottone" href="#contatti" data-t="rich.cta">Scrivici</a>
       </div>
+    </div>
+  </section>
+
+  <section class="instagram">
+    <div class="wrap">
+      <div class="intro">
+        <span class="etichetta">Instagram</span>
+        <h2 data-t="ig.h2">Seguici su Instagram.</h2>
+        <p data-t="ig.p">I pezzi nuovi, i lavori su richiesta e quello che succede al banco, prima di arrivare qui.</p>
+      </div>
+      <div class="ig-foto">
+        <a href="https://www.instagram.com/daz.jwrly/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="orecchini-onda.jpg" alt="" loading="lazy"></a>
+        <a href="https://www.instagram.com/daz.jwrly/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="collana-nastro.jpg" alt="" loading="lazy"></a>
+        <a href="https://www.instagram.com/daz.jwrly/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="colore.jpg" alt="" loading="lazy"></a>
+        <a href="https://www.instagram.com/daz.jwrly/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="anello-onda.jpg" alt="" loading="lazy"></a>
+      </div>
+      <div class="centro"><a class="bottone" href="https://www.instagram.com/daz.jwrly/" target="_blank" rel="noopener" data-t="ig.cta">Segui @daz.jwrly</a></div>
     </div>
   </section>
 
@@ -239,6 +328,7 @@
     <button class="chiudi" aria-label="Chiudi" data-t-aria="d.chiudi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     <img id="d-foto" alt="">
     <div class="info">
+      <span class="unico" id="d-unico" hidden data-t="unico">Pezzo unico</span>
       <span class="etichetta" id="d-collezione"></span>
       <h3 id="d-nome"></h3>
       <div class="prezzo" id="d-prezzo"></div>
@@ -257,6 +347,7 @@
      ELENCO PEZZI
      Per cambiare un prezzo: modifica il numero dopo "prezzo".
      "da: true" mostra "da € 28" (prezzo di partenza).
+     "unico: true" mostra l'etichetta "Pezzo unico" sulla foto.
      Nomi, descrizione breve (sotto il nome nella griglia) e testo
      (nella scheda aperta) sono in tre lingue: it, en, pt.
      ============================================================ */
@@ -359,9 +450,21 @@
       "nota": "Per acquistare un pezzo scrivici via email o su Instagram: ti rispondiamo con disponibilità e modalità di consegna.",
       "rich.label": "Su richiesta", "rich.h2": "Un pezzo pensato per te.",
       "rich.p": "Se cerchi un gioiello che dialoghi con ciò che già possiedi, un vestito che ami, una palette che ti rappresenta, possiamo progettarlo insieme. Scrivici e raccontaci la tua idea.",
-      "rich.cta": "Scrivici", "rich.alt": "Collana a nastro bianco indossata",
+      "rich.cta": "Scrivici", "rich.esempi": "Nelle foto, due lavori su richiesta: i colori scelti insieme, ancora prima della cottura, e orecchini coordinati al girocollo.", "rich.c1": "Prima della cottura: la palette scelta insieme", "rich.c2": "Orecchini e girocollo coordinati",
       "cont.label": "Contatti", "cont.h2": "Ti piace un pezzo?",
       "cont.p": "Scrivici per sapere se è disponibile, per vederlo da vicino o per un'idea tutta tua.",
+      "proc.label": "Come nasce un pezzo",
+      "proc.h2": "A mano, un passo alla volta.",
+      "p1.h": "Forma",
+      "p1.p": "Ogni pezzo è modellato a mano nell'argilla polimerica: onde, nastri, dischi, superfici rigate.",
+      "p2.h": "Cottura",
+      "p2.p": "Finché non va in forno il pezzo è ancora morbido: è la cottura a fissare la sua forma definitiva.",
+      "p3.h": "Montaggio",
+      "p3.p": "Ogni pezzo viene montato a mano, pronto da indossare ogni giorno.",
+      "ig.h2": "Seguici su Instagram.",
+      "ig.p": "I pezzi nuovi, i lavori su richiesta e quello che succede al banco, prima di arrivare qui.",
+      "ig.cta": "Segui @daz.jwrly",
+      "unico": "Pezzo unico",
       "footer": "© DAZ Jwrly · Gioielli artigianali fatti a mano",
       "vedi": "Vedi il pezzo", "da": "da",
       "collezione": c => "Collezione " + c,
@@ -390,9 +493,21 @@
       "nota": "To buy a piece, write to us by email or on Instagram: we'll reply with availability and delivery options.",
       "rich.label": "Made to order", "rich.h2": "A piece designed for you.",
       "rich.p": "If you're looking for jewelry that speaks to what you already own, a dress you love, a palette that feels like you, we can design it together. Write to us and tell us your idea.",
-      "rich.cta": "Write to us", "rich.alt": "White ribbon necklace, worn",
+      "rich.cta": "Write to us", "rich.esempi": "In the photos, two made-to-order pieces: colors chosen together, before baking, and earrings matched to a choker.", "rich.c1": "Before baking: a palette chosen together", "rich.c2": "Matching earrings and choker",
       "cont.label": "Contact", "cont.h2": "Like a piece?",
       "cont.p": "Write to us to check availability, to see it up close or for an idea all your own.",
+      "proc.label": "How a piece is made",
+      "proc.h2": "By hand, one step at a time.",
+      "p1.h": "Shape",
+      "p1.p": "Each piece is shaped by hand in polymer clay: waves, ribbons, discs, ridged surfaces.",
+      "p2.h": "Baking",
+      "p2.p": "Until it goes into the oven the piece is still soft: baking sets its final shape.",
+      "p3.h": "Assembly",
+      "p3.p": "Each piece is assembled by hand, ready to wear every day.",
+      "ig.h2": "Follow us on Instagram.",
+      "ig.p": "New pieces, made-to-order work and what happens at the workbench, before it gets here.",
+      "ig.cta": "Follow @daz.jwrly",
+      "unico": "One of a kind",
       "footer": "© DAZ Jwrly · Handmade artisanal jewelry",
       "vedi": "View piece", "da": "from",
       "collezione": c => c + " collection",
@@ -421,9 +536,21 @@
       "nota": "Para comprar uma peça, escreva para nós por e-mail ou no Instagram: respondemos com a disponibilidade e as formas de entrega.",
       "rich.label": "Sob encomenda", "rich.h2": "Uma peça pensada para você.",
       "rich.p": "Se você procura uma joia que converse com o que já tem, um vestido que ama, uma paleta que te representa, podemos criá-la juntas. Escreva para nós e conte a sua ideia.",
-      "rich.cta": "Escreva para nós", "rich.alt": "Colar de fita branca, em uso",
+      "rich.cta": "Escreva para nós", "rich.esempi": "Nas fotos, dois trabalhos sob encomenda: as cores escolhidas em conjunto, antes de ir ao forno, e brincos combinando com a gargantilha.", "rich.c1": "Antes do forno: a paleta escolhida em conjunto", "rich.c2": "Brincos e gargantilha combinando",
       "cont.label": "Contato", "cont.h2": "Gostou de uma peça?",
       "cont.p": "Escreva para saber se está disponível, para vê-la de perto ou para uma ideia só sua.",
+      "proc.label": "Como nasce uma peça",
+      "proc.h2": "À mão, um passo de cada vez.",
+      "p1.h": "Forma",
+      "p1.p": "Cada peça é modelada à mão em argila polimérica: ondas, fitas, discos, superfícies frisadas.",
+      "p2.h": "Forno",
+      "p2.p": "Até ir ao forno a peça ainda é macia: é o forno que fixa a sua forma definitiva.",
+      "p3.h": "Montagem",
+      "p3.p": "Cada peça é montada à mão, pronta para usar todos os dias.",
+      "ig.h2": "Siga-nos no Instagram.",
+      "ig.p": "As peças novas, os trabalhos sob encomenda e o que acontece na bancada, antes de chegar aqui.",
+      "ig.cta": "Seguir @daz.jwrly",
+      "unico": "Peça única",
       "footer": "© DAZ Jwrly · Joias artesanais feitas à mão",
       "vedi": "Ver a peça", "da": "a partir de",
       "collezione": c => "Coleção " + c,
@@ -445,6 +572,7 @@
     const daUrl = new URLSearchParams(location.search).get("lang");
     if (LINGUE.includes(daUrl)) return daUrl;
     try { const s = localStorage.getItem("daz-lingua"); if (LINGUE.includes(s)) return s; } catch (e) {}
+    if (/bot|crawl|spider|facebookexternalhit|whatsapp/i.test(navigator.userAgent)) return "it";
     const nav = (navigator.language || "it").slice(0, 2).toLowerCase();
     return LINGUE.includes(nav) ? nav : "it";
   }
@@ -455,7 +583,7 @@
     prodotti.forEach((p, i) => {
       const b = document.createElement("button");
       b.className = "scheda"; b.dataset.tipo = p.tipo;
-      b.innerHTML = `<span class="foto"><img src="${p.foto}" alt="${p.nome[lingua]}" loading="lazy"><span class="vedi">${t("vedi")}</span></span>
+      b.innerHTML = `<span class="foto"><img src="${p.foto}" alt="${p.nome[lingua]}" loading="lazy">${p.unico ? `<span class="unico">${t("unico")}</span>` : ""}<span class="vedi">${t("vedi")}</span></span>
         <span class="nome">${p.nome[lingua]}</span><span class="breve">${p.breve[lingua]}</span><span class="etichetta collezione-nome">${collezioni[p.collezione][lingua]}</span><span class="prezzo">${prezzo(p)}</span>`;
       b.addEventListener("click", () => apri(i));
       griglia.appendChild(b);
@@ -477,11 +605,15 @@
     document.documentElement.lang = l;
     document.title = t("title");
     document.querySelector('meta[name="description"]').setAttribute("content", t("description"));
+    const url = "https://daz-jwrly.github.io/" + (l === "it" ? "" : "?lang=" + l);
+    document.querySelector('link[rel="canonical"]').href = url;
+    document.querySelector('meta[property="og:url"]').content = url;
     document.querySelectorAll("[data-t]").forEach(el => el.textContent = t(el.dataset.t));
     document.querySelectorAll("[data-t-alt]").forEach(el => el.alt = t(el.dataset.tAlt));
     document.querySelectorAll("[data-t-aria]").forEach(el => el.setAttribute("aria-label", t(el.dataset.tAria)));
     document.querySelectorAll(".lingue button").forEach(b => b.classList.toggle("attiva", b.dataset.lingua === l));
     disegnaGriglia();
+    datiPerGoogle();
     try { localStorage.setItem("daz-lingua", l); } catch (e) {}
   }
   document.querySelectorAll(".lingue button").forEach(b => b.addEventListener("click", () => impostaLingua(b.dataset.lingua)));
@@ -494,6 +626,7 @@
     document.getElementById("d-nome").textContent = nome;
     document.getElementById("d-collezione").textContent = t("collezione")(collezioni[p.collezione][lingua]);
     document.getElementById("d-prezzo").textContent = prezzo(p);
+    document.getElementById("d-unico").hidden = !p.unico;
     document.getElementById("d-testo").textContent = p.testo[lingua];
     document.getElementById("d-email").href = "mailto:daz.jwrly@gmail.com?subject=" + encodeURIComponent(t("mail.oggetto")(nome)) + "&body=" + encodeURIComponent(t("mail.testo")(nome));
     d.classList.add("aperto");
@@ -511,6 +644,27 @@
   d.querySelector(".torna").addEventListener("click", () => chiudi());
   document.addEventListener("keydown", e => { if (e.key === "Escape") chiudi(); });
   window.addEventListener("popstate", () => chiudi(true));
+
+  /* Dati per Google: nascono dalla lista prodotti, quindi restano sempre allineati ai prezzi */
+  function datiPerGoogle() {
+    const sito = "https://daz-jwrly.github.io/";
+    const marchio = { "@type": "Brand", name: "DAZ Jwrly" };
+    const dati = {
+      "@context": "https://schema.org",
+      "@graph": [
+        { "@type": "Organization", name: "DAZ Jwrly", url: sito, logo: sito + "logo.png",
+          email: "daz.jwrly@gmail.com", sameAs: ["https://www.instagram.com/daz.jwrly/"] },
+        ...prodotti.map(p => ({
+          "@type": "Product", name: p.nome[lingua], description: p.testo[lingua],
+          image: sito + p.foto, brand: marchio, category: t("f." + p.tipo),
+          offers: { "@type": "Offer", price: p.prezzo, priceCurrency: "EUR", url: sito + (lingua === "it" ? "" : "?lang=" + lingua) }
+        }))
+      ]
+    };
+    let s = document.getElementById("dati-google");
+    if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = "dati-google"; document.head.appendChild(s); }
+    s.textContent = JSON.stringify(dati);
+  }
 
   impostaLingua(scegliLinguaIniziale());
 </script>
