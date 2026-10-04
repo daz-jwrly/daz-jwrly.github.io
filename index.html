@@ -37,7 +37,12 @@
   nav{display:flex;gap:26px}
   nav a{text-decoration:none;font-family:var(--sans);font-weight:300;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem}
   nav a:hover{color:var(--grigio)}
-  @media (max-width:720px){ nav{gap:16px} nav a{font-size:.64rem;letter-spacing:.14em} nav a.secondario{display:none} header .marchio span{display:none} }
+  nav{align-items:center}
+  .lingue{display:flex;gap:2px;margin-left:8px;padding-left:18px;border-left:1px solid var(--grigio-chiaro)}
+  .lingue button{background:none;border:0;cursor:pointer;padding:4px 5px;font-family:var(--sans);font-weight:300;letter-spacing:.12em;font-size:.68rem;color:var(--grigio)}
+  .lingue button:hover{color:var(--nero)}
+  .lingue button.attiva{color:var(--nero);font-weight:400;text-decoration:underline;text-underline-offset:5px}
+  @media (max-width:720px){ .lingue{margin-left:0;padding-left:10px} .lingue button{font-size:.62rem;padding:4px 3px} nav{gap:14px} nav a{font-size:.64rem;letter-spacing:.14em} nav a.secondario{display:none} header .marchio span{display:none} }
 
   /* apertura */
   .apertura{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:40px;max-width:1180px;margin:0 auto;padding:70px 20px 40px}
@@ -122,9 +127,14 @@
   <div class="wrap">
     <a class="marchio" href="#"><img src="logo.png" alt="Logo DAZ Jwrly"><span>DAZ Jwrly</span></a>
     <nav>
-      <a href="#pezzi">Shop</a>
-      <a class="secondario" href="#su-richiesta">Su richiesta</a>
-      <a href="#contatti">Contatti</a>
+      <a href="#pezzi" data-t="nav.gioielli">Gioielli</a>
+      <a class="secondario" href="#su-richiesta" data-t="nav.richiesta">Su richiesta</a>
+      <a href="#contatti" data-t="nav.contatti">Contatti</a>
+      <div class="lingue" role="group" aria-label="Lingua / Language / Idioma">
+        <button data-lingua="it" lang="it" title="Italiano">IT</button>
+        <button data-lingua="en" lang="en" title="English">EN</button>
+        <button data-lingua="pt" lang="pt" title="Português">PT</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -133,33 +143,33 @@
   <div class="apertura">
     <div class="testo">
       <img class="logo-grande" src="logo.png" alt="DAZ Jwrly · Artisanal Jewelry">
-      <span class="etichetta">Gioielli artigianali</span>
-      <h1>Gioielli che seguono il tuo ritmo.</h1>
-      <p>Pezzi in argilla polimerica, fatti a mano uno per uno, per una quotidianità ricercata. Una coccola speciale da fare a te stessa, nei giorni lenti e in quelli più intensi.</p>
-      <a class="bottone" href="#pezzi">Scopri i pezzi</a>
+      <span class="etichetta" data-t="hero.label">Gioielli artigianali</span>
+      <h1 data-t="hero.h1">Gioielli che seguono il tuo ritmo.</h1>
+      <p data-t="hero.p">Pezzi in argilla polimerica, fatti a mano uno per uno, per una quotidianità ricercata. Una coccola speciale da fare a te stessa, nei giorni lenti e in quelli più intensi.</p>
+      <a class="bottone" href="#pezzi" data-t="hero.cta">Scopri i pezzi</a>
     </div>
-    <div class="foto"><img src="apertura.jpg" alt="Orecchino bianco a onda rigata, indossato"></div>
+    <div class="foto"><img src="apertura.jpg" alt="Orecchino bianco a onda rigata, indossato" data-t-alt="hero.alt"></div>
   </div>
 
   <section>
     <div class="wrap">
       <div class="intro">
-        <span class="etichetta">Il nostro modo</span>
-        <h2>Il vero lusso, oggi, è sentirsi sé stesse.</h2>
-        <p>Non solo un gioiello, ma una storia da indossare: superfici rigate, pieghe morbide, forme che sembrano tessuto. Pensati per accompagnarti ogni giorno, senza dover scegliere tra bellezza e praticità.</p>
+        <span class="etichetta" data-t="modo.label">Il nostro modo</span>
+        <h2 data-t="modo.h2">Il vero lusso, oggi, è sentirsi sé stesse.</h2>
+        <p data-t="modo.p">Non solo un gioiello, ma una storia da indossare: superfici rigate, pieghe morbide, forme che sembrano tessuto. Pensati per accompagnarti ogni giorno, senza dover scegliere tra bellezza e praticità.</p>
       </div>
       <div class="valori">
         <div>
-          <h3>Unico, davvero</h3>
-          <p>Ogni pezzo è diverso e irripetibile. Le piccole variazioni sono il segno della mano che lo ha fatto.</p>
+          <h3 data-t="v1.h">Unico, davvero</h3>
+          <p data-t="v1.p">Ogni pezzo è diverso e irripetibile. Le piccole variazioni sono il segno della mano che lo ha fatto.</p>
         </div>
         <div>
-          <h3>Per ogni momento</h3>
-          <p>Dal look casual a quello più ricercato, si adatta con naturalezza, in equilibrio tra estetica e funzionalità.</p>
+          <h3 data-t="v2.h">Per ogni momento</h3>
+          <p data-t="v2.p">Dal look casual a quello più ricercato, si adatta con naturalezza, in equilibrio tra estetica e funzionalità.</p>
         </div>
         <div>
-          <h3>Slow fashion</h3>
-          <p>Non si accumula: si costruisce uno stile coerente e duraturo, un pezzo alla volta.</p>
+          <h3 data-t="v3.h">Slow fashion</h3>
+          <p data-t="v3.p">Non si accumula: si costruisce uno stile coerente e duraturo, un pezzo alla volta.</p>
         </div>
       </div>
     </div>
@@ -168,29 +178,29 @@
   <section class="negozio" id="pezzi">
     <div class="wrap">
       <div class="intro">
-        <span class="etichetta">I pezzi</span>
-        <h2>Scegli il tuo.</h2>
-        <p>Ogni gioiello è fatto a mano, uno per uno: forme e sfumature possono variare leggermente. Tocca un pezzo per vederlo da vicino.</p>
+        <span class="etichetta" data-t="pezzi.label">I pezzi</span>
+        <h2 data-t="pezzi.h2">Scegli il tuo.</h2>
+        <p data-t="pezzi.p">Ogni gioiello è fatto a mano, uno per uno: forme e sfumature possono variare leggermente. Tocca un pezzo per vederlo da vicino.</p>
       </div>
-      <div class="filtri" role="group" aria-label="Filtra per tipo">
-        <button class="attivo" data-filtro="tutti">Tutti</button>
-        <button data-filtro="orecchini">Orecchini</button>
-        <button data-filtro="collane">Collane e ciondoli</button>
-        <button data-filtro="anelli">Anelli</button>
+      <div class="filtri" role="group">
+        <button class="attivo" data-filtro="tutti" data-t="f.tutti">Tutti</button>
+        <button data-filtro="orecchini" data-t="f.orecchini">Orecchini</button>
+        <button data-filtro="collane" data-t="f.collane">Collane e ciondoli</button>
+        <button data-filtro="anelli" data-t="f.anelli">Anelli</button>
       </div>
       <div class="griglia" id="griglia"></div>
-      <p class="nota-acquisto">Per acquistare un pezzo scrivici via email o su Instagram: ti rispondiamo con disponibilità e modalità di consegna.</p>
+      <p class="nota-acquisto" data-t="nota">Per acquistare un pezzo scrivici via email o su Instagram: ti rispondiamo con disponibilità e modalità di consegna.</p>
     </div>
   </section>
 
   <section id="su-richiesta">
     <div class="wrap richiesta">
-      <img src="collana-nastro-anelli.jpg" alt="Collana a nastro bianco indossata">
+      <img src="collana-nastro-anelli.jpg" alt="Collana a nastro bianco indossata" data-t-alt="rich.alt">
       <div class="intro">
-        <span class="etichetta">Su richiesta</span>
-        <h2>Un pezzo pensato per te.</h2>
-        <p>Se cerchi un gioiello che dialoghi con ciò che già possiedi, un vestito che ami, una palette che ti rappresenta, possiamo progettarlo insieme. Scrivici e raccontaci la tua idea.</p>
-        <a class="bottone" href="#contatti">Scrivici</a>
+        <span class="etichetta" data-t="rich.label">Su richiesta</span>
+        <h2 data-t="rich.h2">Un pezzo pensato per te.</h2>
+        <p data-t="rich.p">Se cerchi un gioiello che dialoghi con ciò che già possiedi, un vestito che ami, una palette che ti rappresenta, possiamo progettarlo insieme. Scrivici e raccontaci la tua idea.</p>
+        <a class="bottone" href="#contatti" data-t="rich.cta">Scrivici</a>
       </div>
     </div>
   </section>
@@ -199,9 +209,9 @@
     <div class="wrap">
       <img class="logo-bianco" src="logo.png" alt="">
       <div class="intro">
-        <span class="etichetta">Contatti</span>
-        <h2>Ti piace un pezzo?</h2>
-        <p>Scrivici per sapere se è disponibile, per vederlo da vicino o per un'idea tutta tua.</p>
+        <span class="etichetta" data-t="cont.label">Contatti</span>
+        <h2 data-t="cont.h2">Ti piace un pezzo?</h2>
+        <p data-t="cont.p">Scrivici per sapere se è disponibile, per vederlo da vicino o per un'idea tutta tua.</p>
       </div>
       <div class="canali">
         <a href="https://www.instagram.com/daz.jwrly/" target="_blank" rel="noopener">
@@ -217,11 +227,11 @@
   </section>
 </main>
 
-<footer>© DAZ Jwrly · Gioielli artigianali fatti a mano</footer>
+<footer data-t="footer">© DAZ Jwrly · Gioielli artigianali fatti a mano</footer>
 
 <div class="dettaglio" id="dettaglio" role="dialog" aria-modal="true" aria-labelledby="d-nome">
   <div class="pannello">
-    <button class="chiudi" aria-label="Chiudi">&times;</button>
+    <button class="chiudi" aria-label="Chiudi" data-t-aria="d.chiudi">&times;</button>
     <img id="d-foto" alt="">
     <div class="info">
       <span class="etichetta" id="d-collezione"></span>
@@ -229,62 +239,253 @@
       <div class="prezzo" id="d-prezzo"></div>
       <p id="d-testo"></p>
       <div class="azioni">
-        <a class="pieno" id="d-email" href="#">Chiedi disponibilità via email</a>
-        <a href="https://ig.me/m/daz.jwrly" target="_blank" rel="noopener">Scrivici su Instagram</a>
+        <a class="pieno" id="d-email" href="#" data-t="d.email">Chiedi disponibilità via email</a>
+        <a href="https://ig.me/m/daz.jwrly" target="_blank" rel="noopener" data-t="d.ig">Scrivici su Instagram</a>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-  /* ELENCO PEZZI: per cambiare un prezzo o un nome basta modificare questa lista. */
+  /* ============================================================
+     ELENCO PEZZI
+     Per cambiare un prezzo: modifica il numero dopo "prezzo".
+     "da: true" mostra "da € 28" (prezzo di partenza).
+     Nomi e descrizioni sono in tre lingue: it, en, pt.
+     ============================================================ */
   const prodotti = [
-    { nome: "Orecchini Onda",      tipo: "orecchini", collezione: "Bianco", prezzo: "€ 42",    foto: "orecchini-onda.jpg",   testo: "Un'onda rigata che segue il lobo, leggera e scultorea." },
-    { nome: "Orecchini Disco",     tipo: "orecchini", collezione: "Bianco", prezzo: "€ 40",    foto: "orecchini-disco.jpg",  testo: "Un cerchio pieno con un piccolo intaglio: essenziale, da portare ogni giorno." },
-    { nome: "Orecchini Nastro",    tipo: "orecchini", collezione: "Bianco", prezzo: "€ 42",    foto: "orecchini-nastro.jpg", testo: "Un nastro rigato che si piega e ricade, come tessuto." },
-    { nome: "Orecchini Colore",    tipo: "orecchini", collezione: "Colore", prezzo: "da € 28", foto: "colore.jpg",           testo: "Giallo, verde e blu, in tinta unita o mescolati. Più forme disponibili: scrivici per scegliere la tua." },
-    { nome: "Ciondolo Onda",       tipo: "collane",   collezione: "Bianco", prezzo: "€ 44",    foto: "ciondolo-onda.jpg",    testo: "La stessa onda rigata, sospesa su una catenina sottile." },
-    { nome: "Ciondolo Disco",      tipo: "collane",   collezione: "Bianco", prezzo: "€ 42",    foto: "ciondolo-disco.jpg",   testo: "Disco intagliato e piccola sfera, su catenina sottile." },
-    { nome: "Ciondolo Nastro",     tipo: "collane",   collezione: "Bianco", prezzo: "€ 44",    foto: "ciondolo-nastro.jpg",  testo: "Piccolo nastro piegato con sfera, su catenina sottile." },
-    { nome: "Collana Nastro",      tipo: "collane",   collezione: "Bianco", prezzo: "€ 58",    foto: "collana-nastro.jpg",   testo: "Un lungo nastro rigato attorcigliato su cordino nero. Il pezzo che si nota." },
-    { nome: "Collana Arco",        tipo: "collane",   collezione: "Bianco", prezzo: "€ 52",    foto: "collana-arco.jpg",     testo: "Un arco bianco morbido su cordino nero, pulito e deciso." },
-    { nome: "Anello Onda",         tipo: "anelli",    collezione: "Bianco", prezzo: "€ 36",    foto: "anello-onda.jpg",      testo: "Anello aperto con onda rigata e piccola sfera." },
-    { nome: "Anello Due Sfere",    tipo: "anelli",    collezione: "Bianco", prezzo: "€ 32",    foto: "anello-sfere.jpg",     testo: "Anello aperto con due sfere, bianca e nera, che si guardano." }
+    { tipo: "orecchini", collezione: "bianco", prezzo: 42, foto: "orecchini-onda.jpg",
+      nome:  { it: "Orecchini Onda", en: "Onda Earrings", pt: "Brincos Onda" },
+      testo: { it: "Un'onda rigata che segue il lobo, leggera e scultorea.",
+               en: "A ridged wave that follows the earlobe, light and sculptural.",
+               pt: "Uma onda frisada que acompanha o lóbulo, leve e escultural." } },
+    { tipo: "orecchini", collezione: "bianco", prezzo: 40, foto: "orecchini-disco.jpg",
+      nome:  { it: "Orecchini Disco", en: "Disco Earrings", pt: "Brincos Disco" },
+      testo: { it: "Un cerchio pieno con un piccolo intaglio: essenziale, da portare ogni giorno.",
+               en: "A full circle with a small notch: essential, made for every day.",
+               pt: "Um círculo cheio com um pequeno recorte: essencial, para usar todos os dias." } },
+    { tipo: "orecchini", collezione: "bianco", prezzo: 42, foto: "orecchini-nastro.jpg",
+      nome:  { it: "Orecchini Nastro", en: "Nastro Earrings", pt: "Brincos Nastro" },
+      testo: { it: "Un nastro rigato che si piega e ricade, come tessuto.",
+               en: "A ridged ribbon that folds and falls, like fabric.",
+               pt: "Uma fita frisada que se dobra e cai, como tecido." } },
+    { tipo: "orecchini", collezione: "colore", prezzo: 28, da: true, foto: "colore.jpg",
+      nome:  { it: "Orecchini Colore", en: "Colore Earrings", pt: "Brincos Colore" },
+      testo: { it: "Giallo, verde e blu, in tinta unita o mescolati. Più forme disponibili: scrivici per scegliere la tua.",
+               en: "Yellow, green and blue, solid or mixed. Several shapes available: write to us to choose yours.",
+               pt: "Amarelo, verde e azul, lisos ou misturados. Várias formas disponíveis: escreva para escolher a sua." } },
+    { tipo: "collane", collezione: "bianco", prezzo: 44, foto: "ciondolo-onda.jpg",
+      nome:  { it: "Ciondolo Onda", en: "Onda Pendant", pt: "Pingente Onda" },
+      testo: { it: "La stessa onda rigata, sospesa su una catenina sottile.",
+               en: "The same ridged wave, suspended on a fine chain.",
+               pt: "A mesma onda frisada, suspensa em uma corrente fina." } },
+    { tipo: "collane", collezione: "bianco", prezzo: 42, foto: "ciondolo-disco.jpg",
+      nome:  { it: "Ciondolo Disco", en: "Disco Pendant", pt: "Pingente Disco" },
+      testo: { it: "Disco intagliato e piccola sfera, su catenina sottile.",
+               en: "A notched disc and a small sphere, on a fine chain.",
+               pt: "Disco recortado e pequena esfera, em corrente fina." } },
+    { tipo: "collane", collezione: "bianco", prezzo: 44, foto: "ciondolo-nastro.jpg",
+      nome:  { it: "Ciondolo Nastro", en: "Nastro Pendant", pt: "Pingente Nastro" },
+      testo: { it: "Piccolo nastro piegato con sfera, su catenina sottile.",
+               en: "A small folded ribbon with a sphere, on a fine chain.",
+               pt: "Pequena fita dobrada com esfera, em corrente fina." } },
+    { tipo: "collane", collezione: "bianco", prezzo: 58, foto: "collana-nastro.jpg",
+      nome:  { it: "Collana Nastro", en: "Nastro Necklace", pt: "Colar Nastro" },
+      testo: { it: "Un lungo nastro rigato attorcigliato su cordino nero. Il pezzo che si nota.",
+               en: "A long ridged ribbon twisted on a black cord. The piece that gets noticed.",
+               pt: "Uma longa fita frisada torcida sobre cordão preto. A peça que chama atenção." } },
+    { tipo: "collane", collezione: "bianco", prezzo: 52, foto: "collana-arco.jpg",
+      nome:  { it: "Collana Arco", en: "Arco Necklace", pt: "Colar Arco" },
+      testo: { it: "Un arco bianco morbido su cordino nero, pulito e deciso.",
+               en: "A soft white arc on a black cord, clean and bold.",
+               pt: "Um arco branco e suave sobre cordão preto, limpo e marcante." } },
+    { tipo: "anelli", collezione: "bianco", prezzo: 36, foto: "anello-onda.jpg",
+      nome:  { it: "Anello Onda", en: "Onda Ring", pt: "Anel Onda" },
+      testo: { it: "Anello aperto con onda rigata e piccola sfera.",
+               en: "An open ring with a ridged wave and a small sphere.",
+               pt: "Anel aberto com onda frisada e pequena esfera." } },
+    { tipo: "anelli", collezione: "bianco", prezzo: 32, foto: "anello-sfere.jpg",
+      nome:  { it: "Anello Due Sfere", en: "Due Sfere Ring", pt: "Anel Due Sfere" },
+      testo: { it: "Anello aperto con due sfere, bianca e nera, che si guardano.",
+               en: "An open ring with two spheres, one white and one black, facing each other.",
+               pt: "Anel aberto com duas esferas, uma branca e uma preta, que se olham." } }
   ];
 
-  const griglia = document.getElementById('griglia');
-  prodotti.forEach((p, i) => {
-    const b = document.createElement('button');
-    b.className = 'scheda'; b.dataset.tipo = p.tipo; b.dataset.i = i;
-    b.innerHTML = `<span class="foto"><img src="${p.foto}" alt="${p.nome}" loading="lazy"><span class="vedi">Vedi il pezzo</span></span>
-      <span class="nome">${p.nome}</span><span class="etichetta collezione-nome">${p.collezione}</span><span class="prezzo">${p.prezzo}</span>`;
-    b.addEventListener('click', () => apri(i));
-    griglia.appendChild(b);
-  });
+  const collezioni = {
+    bianco: { it: "Bianco", en: "White", pt: "Branco" },
+    colore: { it: "Colore", en: "Color", pt: "Cor" }
+  };
 
-  document.querySelectorAll('.filtri button').forEach(btn => btn.addEventListener('click', () => {
-    document.querySelectorAll('.filtri button').forEach(x => x.classList.remove('attivo'));
-    btn.classList.add('attivo');
-    const f = btn.dataset.filtro;
-    document.querySelectorAll('.scheda').forEach(s => s.style.display = (f === 'tutti' || s.dataset.tipo === f) ? '' : 'none');
+  /* ============================================================
+     TESTI DEL SITO NELLE TRE LINGUE
+     ============================================================ */
+  const testi = {
+    it: {
+      "title": "DAZ Jwrly · Gioielli artigianali",
+      "description": "DAZ Jwrly: gioielli artigianali in argilla polimerica, fatti a mano per una quotidianità ricercata.",
+      "nav.gioielli": "Gioielli", "nav.richiesta": "Su richiesta", "nav.contatti": "Contatti",
+      "hero.label": "Gioielli artigianali",
+      "hero.h1": "Gioielli che seguono il tuo ritmo.",
+      "hero.p": "Pezzi in argilla polimerica, fatti a mano uno per uno, per una quotidianità ricercata. Una coccola speciale da fare a te stessa, nei giorni lenti e in quelli più intensi.",
+      "hero.cta": "Scopri i pezzi",
+      "hero.alt": "Orecchino bianco a onda rigata, indossato",
+      "modo.label": "Il nostro modo",
+      "modo.h2": "Il vero lusso, oggi, è sentirsi sé stesse.",
+      "modo.p": "Non solo un gioiello, ma una storia da indossare: superfici rigate, pieghe morbide, forme che sembrano tessuto. Pensati per accompagnarti ogni giorno, senza dover scegliere tra bellezza e praticità.",
+      "v1.h": "Unico, davvero", "v1.p": "Ogni pezzo è diverso e irripetibile. Le piccole variazioni sono il segno della mano che lo ha fatto.",
+      "v2.h": "Per ogni momento", "v2.p": "Dal look casual a quello più ricercato, si adatta con naturalezza, in equilibrio tra estetica e funzionalità.",
+      "v3.h": "Slow fashion", "v3.p": "Non si accumula: si costruisce uno stile coerente e duraturo, un pezzo alla volta.",
+      "pezzi.label": "I pezzi", "pezzi.h2": "Scegli il tuo.",
+      "pezzi.p": "Ogni gioiello è fatto a mano, uno per uno: forme e sfumature possono variare leggermente. Tocca un pezzo per vederlo da vicino.",
+      "f.tutti": "Tutti", "f.orecchini": "Orecchini", "f.collane": "Collane e ciondoli", "f.anelli": "Anelli",
+      "nota": "Per acquistare un pezzo scrivici via email o su Instagram: ti rispondiamo con disponibilità e modalità di consegna.",
+      "rich.label": "Su richiesta", "rich.h2": "Un pezzo pensato per te.",
+      "rich.p": "Se cerchi un gioiello che dialoghi con ciò che già possiedi, un vestito che ami, una palette che ti rappresenta, possiamo progettarlo insieme. Scrivici e raccontaci la tua idea.",
+      "rich.cta": "Scrivici", "rich.alt": "Collana a nastro bianco indossata",
+      "cont.label": "Contatti", "cont.h2": "Ti piace un pezzo?",
+      "cont.p": "Scrivici per sapere se è disponibile, per vederlo da vicino o per un'idea tutta tua.",
+      "footer": "© DAZ Jwrly · Gioielli artigianali fatti a mano",
+      "vedi": "Vedi il pezzo", "da": "da",
+      "collezione": c => "Collezione " + c,
+      "d.email": "Chiedi disponibilità via email", "d.ig": "Scrivici su Instagram", "d.chiudi": "Chiudi",
+      "mail.oggetto": n => "Disponibilità: " + n,
+      "mail.testo": n => "Ciao! Vorrei sapere se il pezzo «" + n + "» è disponibile."
+    },
+    en: {
+      "title": "DAZ Jwrly · Artisanal jewelry",
+      "description": "DAZ Jwrly: artisanal polymer clay jewelry, handmade for refined everyday living.",
+      "nav.gioielli": "Jewelry", "nav.richiesta": "Made to order", "nav.contatti": "Contact",
+      "hero.label": "Artisanal jewelry",
+      "hero.h1": "Jewelry that moves at your pace.",
+      "hero.p": "Polymer clay pieces, handmade one by one, for refined everyday living. A special treat for yourself, on slow days and on the busiest ones.",
+      "hero.cta": "Discover the pieces",
+      "hero.alt": "White ridged wave earring, worn",
+      "modo.label": "Our way",
+      "modo.h2": "True luxury, today, is feeling like yourself.",
+      "modo.p": "Not just a piece of jewelry, but a story to wear: ridged surfaces, soft folds, shapes that look like fabric. Made to be with you every day, without having to choose between beauty and practicality.",
+      "v1.h": "Truly one of a kind", "v1.p": "Every piece is different and unrepeatable. Small variations are the mark of the hand that made it.",
+      "v2.h": "For every moment", "v2.p": "From casual to more refined looks, it adapts naturally, balancing beauty and function.",
+      "v3.h": "Slow fashion", "v3.p": "It's not about having more: it's about building a coherent, lasting style, one piece at a time.",
+      "pezzi.label": "The pieces", "pezzi.h2": "Choose yours.",
+      "pezzi.p": "Every piece is handmade, one by one: shapes and shades may vary slightly. Tap a piece to see it up close.",
+      "f.tutti": "All", "f.orecchini": "Earrings", "f.collane": "Necklaces & pendants", "f.anelli": "Rings",
+      "nota": "To buy a piece, write to us by email or on Instagram: we'll reply with availability and delivery options.",
+      "rich.label": "Made to order", "rich.h2": "A piece designed for you.",
+      "rich.p": "If you're looking for jewelry that speaks to what you already own, a dress you love, a palette that feels like you, we can design it together. Write to us and tell us your idea.",
+      "rich.cta": "Write to us", "rich.alt": "White ribbon necklace, worn",
+      "cont.label": "Contact", "cont.h2": "Like a piece?",
+      "cont.p": "Write to us to check availability, to see it up close or for an idea all your own.",
+      "footer": "© DAZ Jwrly · Handmade artisanal jewelry",
+      "vedi": "View piece", "da": "from",
+      "collezione": c => c + " collection",
+      "d.email": "Ask about availability by email", "d.ig": "Message us on Instagram", "d.chiudi": "Close",
+      "mail.oggetto": n => "Availability: " + n,
+      "mail.testo": n => "Hello! I'd like to know if the piece “" + n + "” is available."
+    },
+    pt: {
+      "title": "DAZ Jwrly · Joias artesanais",
+      "description": "DAZ Jwrly: joias artesanais em argila polimérica, feitas à mão para um dia a dia sofisticado.",
+      "nav.gioielli": "Joias", "nav.richiesta": "Sob encomenda", "nav.contatti": "Contato",
+      "hero.label": "Joias artesanais",
+      "hero.h1": "Joias que acompanham o seu ritmo.",
+      "hero.p": "Peças em argila polimérica, feitas à mão uma a uma, para um dia a dia sofisticado. Um carinho especial para você mesma, nos dias calmos e nos mais intensos.",
+      "hero.cta": "Conheça as peças",
+      "hero.alt": "Brinco branco em forma de onda frisada, em uso",
+      "modo.label": "Nosso jeito",
+      "modo.h2": "O verdadeiro luxo, hoje, é sentir-se você mesma.",
+      "modo.p": "Não apenas uma joia, mas uma história para vestir: superfícies frisadas, dobras suaves, formas que parecem tecido. Pensadas para acompanhar você todos os dias, sem precisar escolher entre beleza e praticidade.",
+      "v1.h": "Única, de verdade", "v1.p": "Cada peça é diferente e irrepetível. As pequenas variações são a marca da mão que a criou.",
+      "v2.h": "Para cada momento", "v2.p": "Do look casual ao mais sofisticado, se adapta com naturalidade, em equilíbrio entre estética e funcionalidade.",
+      "v3.h": "Slow fashion", "v3.p": "Não se trata de acumular: constrói-se um estilo coerente e duradouro, uma peça de cada vez.",
+      "pezzi.label": "As peças", "pezzi.h2": "Escolha a sua.",
+      "pezzi.p": "Cada joia é feita à mão, uma a uma: formas e tons podem variar levemente. Toque em uma peça para vê-la de perto.",
+      "f.tutti": "Todas", "f.orecchini": "Brincos", "f.collane": "Colares e pingentes", "f.anelli": "Anéis",
+      "nota": "Para comprar uma peça, escreva para nós por e-mail ou no Instagram: respondemos com a disponibilidade e as formas de entrega.",
+      "rich.label": "Sob encomenda", "rich.h2": "Uma peça pensada para você.",
+      "rich.p": "Se você procura uma joia que converse com o que já tem, um vestido que ama, uma paleta que te representa, podemos criá-la juntas. Escreva para nós e conte a sua ideia.",
+      "rich.cta": "Escreva para nós", "rich.alt": "Colar de fita branca, em uso",
+      "cont.label": "Contato", "cont.h2": "Gostou de uma peça?",
+      "cont.p": "Escreva para saber se está disponível, para vê-la de perto ou para uma ideia só sua.",
+      "footer": "© DAZ Jwrly · Joias artesanais feitas à mão",
+      "vedi": "Ver a peça", "da": "a partir de",
+      "collezione": c => "Coleção " + c,
+      "d.email": "Consultar disponibilidade por e-mail", "d.ig": "Fale conosco no Instagram", "d.chiudi": "Fechar",
+      "mail.oggetto": n => "Disponibilidade: " + n,
+      "mail.testo": n => "Olá! Gostaria de saber se a peça “" + n + "” está disponível."
+    }
+  };
+
+  /* ============================================================
+     FUNZIONAMENTO (non serve modificare sotto questa riga)
+     ============================================================ */
+  const LINGUE = ["it", "en", "pt"];
+  let lingua = "it";
+  const t = k => testi[lingua][k];
+  const prezzo = p => (p.da ? t("da") + " " : "") + "€ " + p.prezzo;
+
+  function scegliLinguaIniziale() {
+    const daUrl = new URLSearchParams(location.search).get("lang");
+    if (LINGUE.includes(daUrl)) return daUrl;
+    try { const s = localStorage.getItem("daz-lingua"); if (LINGUE.includes(s)) return s; } catch (e) {}
+    const nav = (navigator.language || "it").slice(0, 2).toLowerCase();
+    return LINGUE.includes(nav) ? nav : "it";
+  }
+
+  const griglia = document.getElementById("griglia");
+  function disegnaGriglia() {
+    griglia.innerHTML = "";
+    prodotti.forEach((p, i) => {
+      const b = document.createElement("button");
+      b.className = "scheda"; b.dataset.tipo = p.tipo;
+      b.innerHTML = `<span class="foto"><img src="${p.foto}" alt="${p.nome[lingua]}" loading="lazy"><span class="vedi">${t("vedi")}</span></span>
+        <span class="nome">${p.nome[lingua]}</span><span class="etichetta collezione-nome">${collezioni[p.collezione][lingua]}</span><span class="prezzo">${prezzo(p)}</span>`;
+      b.addEventListener("click", () => apri(i));
+      griglia.appendChild(b);
+    });
+    applicaFiltro();
+  }
+
+  let filtro = "tutti";
+  function applicaFiltro() {
+    document.querySelectorAll(".scheda").forEach(s => s.style.display = (filtro === "tutti" || s.dataset.tipo === filtro) ? "" : "none");
+  }
+  document.querySelectorAll(".filtri button").forEach(btn => btn.addEventListener("click", () => {
+    document.querySelectorAll(".filtri button").forEach(x => x.classList.remove("attivo"));
+    btn.classList.add("attivo"); filtro = btn.dataset.filtro; applicaFiltro();
   }));
 
-  const d = document.getElementById('dettaglio');
-  function apri(i) {
-    const p = prodotti[i];
-    document.getElementById('d-foto').src = p.foto;
-    document.getElementById('d-foto').alt = p.nome;
-    document.getElementById('d-nome').textContent = p.nome;
-    document.getElementById('d-collezione').textContent = 'Collezione ' + p.collezione;
-    document.getElementById('d-prezzo').textContent = p.prezzo;
-    document.getElementById('d-testo').textContent = p.testo;
-    document.getElementById('d-email').href = 'mailto:daz.jwrly@gmail.com?subject=' + encodeURIComponent('Disponibilità: ' + p.nome) + '&body=' + encodeURIComponent('Ciao! Vorrei sapere se ' + p.nome + ' è disponibile.');
-    d.classList.add('aperto');
+  function impostaLingua(l) {
+    lingua = l;
+    document.documentElement.lang = l;
+    document.title = t("title");
+    document.querySelector('meta[name="description"]').setAttribute("content", t("description"));
+    document.querySelectorAll("[data-t]").forEach(el => el.textContent = t(el.dataset.t));
+    document.querySelectorAll("[data-t-alt]").forEach(el => el.alt = t(el.dataset.tAlt));
+    document.querySelectorAll("[data-t-aria]").forEach(el => el.setAttribute("aria-label", t(el.dataset.tAria)));
+    document.querySelectorAll(".lingue button").forEach(b => b.classList.toggle("attiva", b.dataset.lingua === l));
+    disegnaGriglia();
+    try { localStorage.setItem("daz-lingua", l); } catch (e) {}
   }
-  const chiudi = () => d.classList.remove('aperto');
-  d.addEventListener('click', e => { if (e.target === d) chiudi(); });
-  d.querySelector('.chiudi').addEventListener('click', chiudi);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') chiudi(); });
+  document.querySelectorAll(".lingue button").forEach(b => b.addEventListener("click", () => impostaLingua(b.dataset.lingua)));
+
+  const d = document.getElementById("dettaglio");
+  function apri(i) {
+    const p = prodotti[i], nome = p.nome[lingua];
+    document.getElementById("d-foto").src = p.foto;
+    document.getElementById("d-foto").alt = nome;
+    document.getElementById("d-nome").textContent = nome;
+    document.getElementById("d-collezione").textContent = t("collezione")(collezioni[p.collezione][lingua]);
+    document.getElementById("d-prezzo").textContent = prezzo(p);
+    document.getElementById("d-testo").textContent = p.testo[lingua];
+    document.getElementById("d-email").href = "mailto:daz.jwrly@gmail.com?subject=" + encodeURIComponent(t("mail.oggetto")(nome)) + "&body=" + encodeURIComponent(t("mail.testo")(nome));
+    d.classList.add("aperto");
+  }
+  const chiudi = () => d.classList.remove("aperto");
+  d.addEventListener("click", e => { if (e.target === d) chiudi(); });
+  d.querySelector(".chiudi").addEventListener("click", chiudi);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") chiudi(); });
+
+  impostaLingua(scegliLinguaIniziale());
 </script>
 </body>
 </html>
