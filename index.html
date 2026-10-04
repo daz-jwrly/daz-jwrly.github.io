@@ -40,15 +40,16 @@
   @media (max-width:720px){ nav{gap:16px} nav a{font-size:.64rem;letter-spacing:.14em} nav a.secondario{display:none} header .marchio span{display:none} }
 
   /* apertura */
-  .apertura{display:grid;grid-template-columns:1.05fr 1fr;min-height:calc(100vh - 72px)}
-  .apertura .testo{display:flex;flex-direction:column;justify-content:center;padding:60px 7vw 60px 20px;max-width:620px;margin-left:auto}
+  .apertura{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:40px;max-width:1180px;margin:0 auto;padding:70px 20px 40px}
+  .apertura .testo{display:flex;flex-direction:column;justify-content:center;max-width:560px}
   .apertura .logo-grande{width:150px;mix-blend-mode:multiply;margin-bottom:34px}
   .apertura h1{font-family:var(--serif-titoli);font-weight:500;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.12;margin:14px 0 22px}
   .apertura p{color:#3b3b3b;max-width:30em}
-  .apertura .foto{background:url('apertura.jpg') center 40%/cover no-repeat;min-height:420px}
+  .apertura .foto{justify-self:center;width:100%;max-width:400px}
+  .apertura .foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:45% 38%;box-shadow:0 18px 40px -24px rgba(0,0,0,.35)}
   .bottone{display:inline-block;margin-top:30px;padding:14px 28px;border:1px solid var(--nero);text-decoration:none;font-family:var(--sans);font-weight:300;text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;transition:.2s;align-self:flex-start}
   .bottone:hover{background:var(--nero);color:var(--bianco)}
-  @media (max-width:860px){ .apertura{grid-template-columns:1fr} .apertura .foto{order:-1;min-height:62vh} .apertura .testo{padding:44px 20px;margin:0} .apertura .logo-grande{display:none} }
+  @media (max-width:860px){ .apertura{grid-template-columns:1fr;padding:32px 20px 10px;gap:28px} .apertura .foto{order:-1;max-width:300px} .apertura .testo{margin:0} .apertura .logo-grande{display:none} }
 
   /* sezioni */
   section{padding:96px 0}
@@ -137,7 +138,7 @@
       <p>Pezzi in argilla polimerica, fatti a mano uno per uno, per una quotidianità ricercata. Una coccola speciale da fare a te stessa, nei giorni lenti e in quelli più intensi.</p>
       <a class="bottone" href="#pezzi">Scopri i pezzi</a>
     </div>
-    <div class="foto" role="img" aria-label="Orecchino bianco a onda rigata, indossato"></div>
+    <div class="foto"><img src="apertura.jpg" alt="Orecchino bianco a onda rigata, indossato"></div>
   </div>
 
   <section>
